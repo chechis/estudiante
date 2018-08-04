@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="12dp"
+    android:elevation="15dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_tarea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tarea"
+                android:padding="5dp"
+                android:textStyle="bold|italic"
+                />
+            <TextView
+                android:id="@+id/txt_estudiante"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Estudiante"
+                android:padding="5dp"
+                android:textStyle="bold|italic"
+                />
+            <TextView
+                android:id="@+id/txt_asignatura"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Asignatura"
+                android:padding="5dp"
+                android:textStyle="bold|italic"
+                />
+            <TextView
+                android:id="@+id/txt_nota"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Nota"
+                android:padding="5dp"
+                android:textStyle="bold|italic"
+                />
+    </LinearLayout>
+
+    </android.support.v7.widget.CardView >

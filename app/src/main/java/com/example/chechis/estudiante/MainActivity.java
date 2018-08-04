@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        cursorLoader = new CursorLoader(this, Uri.parse("content://com.example.chechis.profesor.ProviderContent/cte"), null, null, null, null);
+        cursorLoader = new CursorLoader(this, Uri.parse("content://com.example.chechis.profesor.ProveedorContenidos/cte"), null, null, null, null);
         return cursorLoader;
     }
 
@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             data.moveToFirst();
             StringBuilder txt = new StringBuilder();
             while (!data.isAfterLast()){
-                txt.append("\n"+data.getString(data.getColumnIndex("id"))+" - " +data.getString(data.getColumnIndex("Texto")));
+                txt.append("\n"+data.getString(data.getColumnIndex("Id"))+" - " +data.getString(data.getColumnIndex("actividad"))
+                        +" - " +data.getString(data.getColumnIndex("estudiante")) +" - " +data.getString(data.getColumnIndex("asignatura"))
+                        +" - " +data.getString(data.getColumnIndex("nota")));
                 data.moveToNext();
             }
             textView.setText(txt);
