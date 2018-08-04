@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/boton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Desplegar"
-        android:onClick="listar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/texto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="20dp" />
 
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="39dp"
+        android:src="@drawable/ic_refresh_black_24dp"
+        android:theme="@style/MyFloatingButton"
+        app:rippleColor="@color/colorAccent"
+        android:onClick="listar"
+        />
+
+</RelativeLayout>
