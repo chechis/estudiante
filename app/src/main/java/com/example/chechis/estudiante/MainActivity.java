@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle parametroBundle = this.getIntent().getExtras();
+        String usuarioBundle = parametroBundle.getString("nombre");
+        Toast.makeText(this, "Hola "+usuarioBundle, Toast.LENGTH_SHORT).show();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
@@ -81,4 +85,5 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onDestroy(){
         super.onDestroy();
     }
+
 }
