@@ -17,7 +17,7 @@ public class BaseDatosInicio extends SQLiteOpenHelper {
                     + Estructura.EstructuraInicio.COLUMN_NAME_CONTRA + tipo + coma
                     + Estructura.EstructuraInicio.COLUMN_NAME_ROL + tipo + " )";
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "Inicio Estudiante.sqLite";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + Estructura.EstructuraInicio.TABLE_NAME;
