@@ -2,6 +2,7 @@ package com.example.chechis.estudiante;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,13 +28,18 @@ import java.util.ArrayList;
 public class InicioActivity extends AppCompatActivity {
 
     private Button btnInicio;
-    private String url = "http://192.168.1.7:8084/respondiendo-HTTP/webapi/profesor";
     private TextInputLayout usuarioEdit, contrasenaEdit;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+
+        pref = getSharedPreferences(PreferenceConstan.PREFERENCE_NAME, MODE_PRIVATE);
+        String urlPref = pref.getString(PreferenceConstan.PREF_KEY_USERNAME, null);
+
+        String url = "http://"+urlPref+"/respondiendo-HTTP/webapi/profesor";
 
         btnInicio =(Button) findViewById(R.id.btn_inicio);
         btnInicio.setOnClickListener(new View.OnClickListener() {

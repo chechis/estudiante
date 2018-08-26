@@ -112,7 +112,8 @@ public class ServicioInicio {
                 aux = 2;
 
             }else {
-                Toast.makeText(activity, "Vuelve a intentarlo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Vuelve a intentarlo, prueba con" +
+                        "\n\n"+"Usuario: Julio\n"+"Contraseña : 123", Toast.LENGTH_LONG).show();
             }
         }
         sq.close();

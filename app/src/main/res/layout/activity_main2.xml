@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main2Activity"
+    android:background="@color/cardview_light_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="102dp"
+        android:text="Ingresa tu dirección IP" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/edit_direccion"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="192.168.x.x" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Ingresa tu puerto del servidor Tomcat " />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/edit_puerto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="182dp">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="8084" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignEnd="@+id/edit_direccion"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="106dp"
+        android:background="@color/cardview_light_background"
+        android:text="Iniciar"
+        android:theme="@style/Widget.AppCompat.Button.Borderless" />
+
+    <Button
+        android:id="@+id/btn_guardar_dir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignStart="@+id/edit_direccion"
+        android:layout_alignTop="@+id/btn_direccion"
+        android:background="@color/cardview_light_background"
+        android:text="Guardar"
+        android:theme="@style/Widget.AppCompat.Button.Borderless" />
+
+
+
+
+
+
+</RelativeLayout>
