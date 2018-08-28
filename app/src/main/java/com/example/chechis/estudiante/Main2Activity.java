@@ -12,6 +12,8 @@ import android.widget.Toast;
 public class Main2Activity extends AppCompatActivity {
 
     private SharedPreferences pref;
+    private Bundle parametro = new Bundle();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if (editDireccion!= null && editPuerto!= null){
                     Intent intent = new Intent(Main2Activity.this, InicioActivity.class);
+                    parametro.putString("url", editDireccion.getEditText().getText().toString()+":"+editPuerto.getEditText().getText().toString());
+                    intent.putExtras(parametro);
                     startActivity(intent);
 
                 }

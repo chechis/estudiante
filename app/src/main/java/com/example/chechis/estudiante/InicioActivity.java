@@ -31,15 +31,17 @@ public class InicioActivity extends AppCompatActivity {
     private TextInputLayout usuarioEdit, contrasenaEdit;
     private SharedPreferences pref;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        pref = getSharedPreferences(PreferenceConstan.PREFERENCE_NAME, MODE_PRIVATE);
-        String urlPref = pref.getString(PreferenceConstan.PREF_KEY_USERNAME, null);
+        Bundle parametro = this.getIntent().getExtras();
+        String urlBundle = parametro.getString("url");
+        String url = "http://"+urlBundle+"/respondiendo-HTTP/webapi/profesor";
 
-        String url = "http://"+urlPref+"/respondiendo-HTTP/webapi/profesor";
 
         btnInicio =(Button) findViewById(R.id.btn_inicio);
         btnInicio.setOnClickListener(new View.OnClickListener() {
