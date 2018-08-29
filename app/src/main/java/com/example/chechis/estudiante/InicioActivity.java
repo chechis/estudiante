@@ -33,6 +33,7 @@ public class InicioActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +70,7 @@ public class InicioActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(InicioActivity.this, "Error al realizar la peticion\n "+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InicioActivity.this, "Error al realizar la peticion\n " + error.getMessage(), Toast.LENGTH_SHORT).show();
                         if (dialog.isShowing()) dialog.dismiss();
                     }
                 });
