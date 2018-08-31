@@ -2,11 +2,13 @@ package com.example.chechis.estudiante;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.btn_guardar_dir);
         final TextInputLayout editDireccion = (TextInputLayout) findViewById(R.id.edit_direccion);
         final TextInputLayout editPuerto = (TextInputLayout) findViewById(R.id.edit_puerto);
+        final TextView textView = (TextView) findViewById(R.id.txt_direccionypuerto);
 
 
 
@@ -31,12 +34,8 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 if (editDireccion!= null && editPuerto!= null){
                     Intent intent = new Intent(Main2Activity.this, InicioActivity.class);
-                    parametro.putString("url", editDireccion.getEditText().getText().toString()+":"+editPuerto.getEditText().getText().toString());
-                    intent.putExtras(parametro);
                     startActivity(intent);
-
                 }
-
 
             }
         });
@@ -47,7 +46,8 @@ public class Main2Activity extends AppCompatActivity {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString(PreferenceConstan.PREF_KEY_USERNAME, link);
                 edit.apply();
-                Toast.makeText(Main2Activity.this, "Dirección y puerto guardado", Toast.LENGTH_SHORT).show();
+                Snackbar.make(view, "Datos guardados correctamente", Snackbar.LENGTH_SHORT).show();
+                textView.setText(link);
 
             }
         });

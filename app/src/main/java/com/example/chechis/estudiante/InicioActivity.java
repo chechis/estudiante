@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,6 +31,7 @@ public class InicioActivity extends AppCompatActivity {
     private Button btnInicio;
     private TextInputLayout usuarioEdit, contrasenaEdit;
     private SharedPreferences pref;
+    private String url = "";
 
 
 
@@ -39,10 +41,11 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        Bundle parametro = this.getIntent().getExtras();
-        String urlBundle = parametro.getString("url");
-        String url = "http://"+urlBundle+"/respondiendo-HTTP/webapi/profesor";
 
+
+        TextView textView = (TextView) findViewById(R.id.txt_inicio_dir);
+        pref = getSharedPreferences(PreferenceConstan.PREFERENCE_NAME, MODE_PRIVATE);
+        String urlPref = pref.getString(PreferenceConstan.PREF_KEY_USERNAME, null);
 
         btnInicio =(Button) findViewById(R.id.btn_inicio);
         btnInicio.setOnClickListener(new View.OnClickListener() {
@@ -53,11 +56,21 @@ public class InicioActivity extends AppCompatActivity {
         });
 
 
+        if (urlPref!= null){
+            url = "http://"+urlPref+"/respondiendo-HTTP/webapi/profesor";
+            textView.setText(url);
+            json(url);
+        }
+
+
+    }
+
+    private void json (String url){
+
         RequestQueue queue = Volley.newRequestQueue(InicioActivity.this);
         final ProgressDialog dialog = new ProgressDialog(InicioActivity.this);
         dialog.setMessage("Por favor espere...");
         dialog.show();
-
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url,
                 new Response.Listener<JSONArray>() {
@@ -70,12 +83,10 @@ public class InicioActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(InicioActivity.this, "Error al realizar la peticion\n " + error.getMessage(), Toast.LENGTH_SHORT).show();
                         if (dialog.isShowing()) dialog.dismiss();
                     }
                 });
         queue.add(jsonArrayRequest);
-
     }
 
     public void deserializarJSON (JSONArray jsonArray){

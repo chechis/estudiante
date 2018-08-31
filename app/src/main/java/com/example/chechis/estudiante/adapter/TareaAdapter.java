@@ -49,8 +49,8 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaHolder>
     public void onBindViewHolder(TareaHolder holder, int position) {
 
         holder.txtTarea.setText("Tarea: "+tareas.get(position).getTarea());
-        holder.txtAsignatura.setText("Asignatura: "+tareas.get(position).getAsignatura());
-        holder.txtEstudiante.setText("Estudiante: "+tareas.get(position).getEstudiante());
+        holder.txtAsignatura.setText("Estudiante: "+tareas.get(position).getAsignatura());
+        holder.txtEstudiante.setText("Asignatura: "+tareas.get(position).getEstudiante());
         holder.txtNota.setText("Nota: "+tareas.get(position).getNota());
     }
 
